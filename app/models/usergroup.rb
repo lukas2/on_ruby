@@ -4,11 +4,25 @@ class Usergroup
   NUMBERS           = %w(first second third fourth)
   SUPPORTED_LOCALES = [:de, :en]
 
-  attr_accessor :label_id, :default_locale, :domains, :recurring, :email, :google_group
-  attr_accessor :twitter, :organizers, :location, :imprint, :other_usergroups, :theme
+  attr_accessor :label_id, :default_locale, :domains, :recurring,
+    :email, :google_group, :twitter, :organizers, :location,
+    :imprint, :other_usergroups, :theme, :sections
 
   def host
     "#{label_id}.#{HOST}"
+  end
+
+  def sections
+    defaults = {
+      events:       'full',
+      topics:       'full',
+      people:       'full',
+      mailing_list: 'full',
+      locations:    'full',
+    }.with_indifferent_access
+
+    defaults = defaults.merge(@sections || {})
+    defaults.reject { |_, value| "#{value}" == 'disabled'}
   end
 
   def self.from_name(name)

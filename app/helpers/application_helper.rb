@@ -60,6 +60,11 @@ module ApplicationHelper
     end
   end
 
+  def render_section(name, options = {})
+    return unless section_option = Whitelabel[:sections][name]
+    render "#{name}", options.merge(section_option: section_option)
+  end
+
   def render_cached
     key = [Whitelabel[:label_id], I18n.locale, controller_name, action_name].join("/")
     Rails.logger.info "cache fragment '#{key}'"

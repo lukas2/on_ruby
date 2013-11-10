@@ -1,9 +1,19 @@
 require 'spec_helper'
 
 describe Usergroup do
-  let(:every_second_wednesday) { Usergroup.new.tap { |it| it.recurring = 'second wednesday 18:30' } }
+  context "sections" do
+    let(:disabled_events) { Usergroup.new.tap { |it| it.sections = {events: :disabled} } }
+
+    it "removes disabled sections" do
+      expect(disabled_events.sections[:topics]).to eql('full')
+      expect(disabled_events.sections['topics']).to eql('full')
+      expect(disabled_events.sections[:events]).to be_nil
+    end
+  end
 
   context "parsing of recurring" do
+    let(:every_second_wednesday) { Usergroup.new.tap { |it| it.recurring = 'second wednesday 18:30' } }
+
     context "as string" do
       it "parses recurring and translates it" do
         every_second_wednesday.localized_recurring.should eql('jeden 2. Mittwoch im Monat')

@@ -1,6 +1,5 @@
 ul
-  - nav_entries = [:events, :topics, :people, :mailing_list, :locations]
-  - nav_entries.each do |it|
+  - Whitelabel[:sections].keys.each do |it|
     li= link_to t(it), root_path(anchor: it), title: t(it)
 
 #locale
