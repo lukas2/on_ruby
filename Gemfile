@@ -30,6 +30,7 @@ gem "coffee-rails",           "4.0.1"
 gem "font-awesome-rails",     "4.0.3.1"
 gem "uglifier",               "2.4.0"
 gem "newrelic_rpm",           "3.7.1.188"
+gem "zazicki", path: '/Users/paule/Documents/rails/zazicki'
 
 group :production, :caching do
   gem "heroku-deflater",  "0.5.3"

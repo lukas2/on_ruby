@@ -50,7 +50,8 @@ module OnRuby
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
     config.assets.precompile += %w(labels/*)
 
-    config.middleware.insert_before "Rails::Rack::Logger", "DisableAssetsLogger"
+    # config.middleware.insert_before "Rails::Rack::Logger", "DisableAssetsLogger"
+    config.zazicki
 
     # Configure generators.
     config.generators do |g|
