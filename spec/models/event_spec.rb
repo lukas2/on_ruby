@@ -9,7 +9,7 @@ describe Event do
 
   context "validation" do
     it "should be valid" do
-      expect(event).to be_valid
+      expect(event).to be(77)
     end
 
     it "should validate uniqueness" do

@@ -40,17 +40,15 @@ group :production, :caching do
 end
 
 group :development, :test do
-  gem "spring"
-  gem "spring-commands-rspec"
   gem "letter_opener"
   gem "faker"
   gem "pry-rails"
-  gem "pry-remote"
-  gem "pry-nav"
+  gem 'pry-rescue'
+  # gem 'pry-stack_explorer'
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem "meta_request"
   gem "better_errors"
   gem "binding_of_caller"
-  gem "coveralls"
+  gem "coveralls", require: false
 end
