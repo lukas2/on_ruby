@@ -180,9 +180,12 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
-    pry-rescue (1.4.0)
-      interception (>= 0.4)
+    pry-rescue (1.4.1)
+      interception (>= 0.5)
       pry
+    pry-stack_explorer (0.4.9.1)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     rack (1.5.2)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -313,7 +316,8 @@ DEPENDENCIES
   omniauth-twitter (= 1.0.1)
   pg (= 0.17.1)
   pry-rails
-  pry-rescue
+  pry-rescue (= 1.4.1)
+  pry-stack_explorer
   rack-cache (= 1.2)
   rails (= 4.0.2)
   rails-observers (= 0.1.2)

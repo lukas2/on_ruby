@@ -37,7 +37,7 @@ describe User do
     end
 
     it "should not allow urls on github" do
-      ["http://", "www.bla"].each do |val|
+      ["http://", "bla"].each do |val|
         user.github = val
         expect(user).to have(1).errors_on(:github)
       end

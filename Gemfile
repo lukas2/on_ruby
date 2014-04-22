@@ -43,8 +43,8 @@ group :development, :test do
   gem "letter_opener"
   gem "faker"
   gem "pry-rails"
-  gem 'pry-rescue'
-  # gem 'pry-stack_explorer'
+  gem 'pry-rescue', '1.4.1'
+  gem 'pry-stack_explorer'
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem "meta_request"
