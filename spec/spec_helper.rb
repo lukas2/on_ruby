@@ -10,6 +10,8 @@ require 'rspec/rails'
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |file| require file }
 
 RSpec.configure do |config|
+  config.infer_spec_type_from_file_location!
+
   config.include RequestHelper, type: :controller
   config.include RequestHelper, type: :request
   config.include CachingHelper, type: :request
@@ -18,7 +20,6 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
   config.use_transactional_fixtures = true
-  config.treat_symbols_as_metadata_keys_with_true_values = true
   config.filter_run focus: true
   config.run_all_when_everything_filtered = true
 
