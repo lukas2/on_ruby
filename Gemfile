@@ -48,6 +48,7 @@ end
 
 group :development do
   gem "partially_useful"
+  gem "debugger"
 end
 
 group :development, :test do
