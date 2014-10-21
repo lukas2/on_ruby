@@ -28,4 +28,16 @@ class Location < ActiveRecord::Base
   def nice_url
     URI.parse(url).host
   end
+
+  # returns "yes", "no", "limited" or "unknown"
+  def wheelchair_status
+    if self.wheelmap_id
+      Rails.cache.fetch( "cached_wheelmap_status_#{self.wheelmap_id}", expires_in: 1.hour ) do
+        WheelmapApi.wheelbase_wheelchair_status( self.wheelmap_id )
+      end
+    else
+      "unknown"
+    end
+  end
+
 end
